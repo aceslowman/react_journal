@@ -1,0 +1,64 @@
+#container {
+  padding: 30px;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: orange;
+  color: white; }
+  #container div {
+    box-sizing: border-box; }
+
+.banner {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  background-color: red;
+  padding-left: 15px; }
+  .banner h1 {
+    vertical-align: center;
+    padding: 0;
+    margin: 0; }
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: green;
+  height: 90%; }
+  .content-container .navigation {
+    flex: 1 1 300px;
+    align-self: center;
+    background-color: green; }
+    .content-container .navigation ul {
+      padding: 0;
+      list-style: none;
+      border-right: 1px solid white; }
+      .content-container .navigation ul li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none; }
+        .content-container .navigation ul li a:hover {
+          color: yellow;
+          background-color: purple; }
+  .content-container .content {
+    flex: 2 1 auto;
+    background-color: blue;
+    overflow-y: scroll;
+    padding: 15px; }
+    .content-container .content img {
+      max-width: 100%; }
+
+@media (max-width: 991px) {
+  #container {
+    padding: 0px; }
+
+  .content-container {
+    flex-direction: column; }
+    .content-container .navigation {
+      flex: 1 0 auto; }
+      .content-container .navigation ul {
+        margin: 0; }
+        .content-container .navigation ul li {
+          display: inline-block; } }
+
+/*# sourceMappingURL=style.css.map */

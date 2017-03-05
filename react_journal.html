@@ -1,0 +1,95 @@
+<html>
+<head>
+  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="utf-8">
+  <title>React Journal</title>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+  var { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        Link } = ReactRouter;
+
+    var destination = document.querySelector("#container");
+
+    var Banner = React.createClass({render: function(){return(
+      <div className="banner">
+        <h1>Some Title</h1>
+      </div>
+    )}});
+
+    var Navigation = React.createClass({
+      render: function(){
+        return(
+          <div className="navigation">
+            <ul>
+              <li><Link to="/section1" activeClassName="active">Section 1</Link></li>
+              <li><Link to="/section2" activeClassName="active">Section 2</Link></li>
+              <li><Link to="/section3" activeClassName="active">Section 3</Link></li>
+              <li><Link to="/section4" activeClassName="active">Section 4</Link></li>
+              <li><Link to="/section5" activeClassName="active">Section 5</Link></li>
+            </ul>
+          </div>
+        )
+      }
+    });
+
+    var Content = React.createClass({
+      render: function(){
+        return(
+          <div className="content">
+            <h1>Test Heading</h1>
+            <img src="http://lorempixel.com/1600/800" />
+            <p>React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.</p>
+            <h2>Test Subheading</h2>
+            <ul>
+              <li>Test Item</li>
+              <li>Test Item</li>
+              <li>Test Item</li>
+              <li>Test Item</li>
+            </ul>
+            <h2>Test Subheading</h2>
+            <ol>
+              <li>Test Item</li>
+              <li>Test Item</li>
+              <li>Test Item</li>
+              <li>Test Item</li>
+            </ol>
+          </div>
+        )
+      }
+    });
+
+    var App = React.createClass({
+      render: function(){
+        return (
+          <div>
+            <Banner/>
+            <div className="content-container">
+              <Navigation/>
+              <Content/>
+            </div>
+          </div>
+        )
+      }
+    });
+
+    ReactDOM.render(
+      <Router>
+        <Route path="/" component={App}>
+        </Route>
+      </Router>,
+      destination
+    );
+
+  </script>
+</body>
+</html>
